@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Cheesy Scoop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Cheesy Scoop - A bakery offering cakes, pastries, desserts, and more in a cozy, delicious atmosphere. Visit us or leave a review today!">
+  <link rel="icon" href="https://img.icons8.com/emoji/48/cupcake-emoji.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #9FC87E;
+      color: #333;
+    }
+    header {
+      background: #0f1a0036;
+      color: #fff;
+      padding: 36px 0 24px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      font-family: 'Pacifico', cursive;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #545553;
+      text-align: center;
+      padding: 8px 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 16px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      margin-top: -30px;
+    }
+    .about-section, .menu-section {
+      background: #f3f9e6;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(46, 125, 50, 0.05);
+      padding: 24px 16px 12px 16px;
+      margin-bottom: 32px;
+    }
+    section {
+      margin-bottom: 48px;
+    }
+    h2 {
+      color: #e74949;
+      margin-bottom: 20px;
+    }
+    .menu-creative {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+      margin-bottom: 20px;
+    }
+    .menu-card {
+      background: #e2f9da;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(46, 125, 50, 0.07);
+      padding: 22px 18px 18px 18px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 2.5px solid #8bc34a;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-card:hover {
+      transform: translateY(-7px) scale(1.03) rotate(-1deg);
+      box-shadow: 0 8px 32px rgba(46, 125, 50, 0.17);
+      border-color: #388e3c;
+      background: #f4fff0;
+    }
+    .menu-card h3 {
+      margin-top: 0;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: #388e3c;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+    }
+    .menu-emoji {
+      font-size: 2.3rem;
+      margin-right: 8px;
+      vertical-align: sub;
+      filter: drop-shadow(1px 1px 2px #388e3c66);
+    }
+    .special-tag {
+      background: #ffeb3b;
+      color: #d84315;
+      font-size: 1.05rem;
+      font-weight: bold;
+      border-radius: 6px;
+      padding: 3px 10px;
+      margin-left: 12px;
+      letter-spacing: 1px;
+    }
+    .menu-list {
+      padding-left: 0;
+      margin: 10px 0 0 0;
+      list-style: none;
+      columns: 1;
+    }
+    .menu-list li {
+      margin-bottom: 7px;
+      padding-left: 0.8em;
+      position: relative;
+      font-size: 1.06rem;
+      line-height: 1.5;
+    }
+    .menu-list li::before {
+      content: "•";
+      color: #2066b0;
+      font-size: 1.2em;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    @media (max-width: 700px) {
+      .menu-creative {
+        grid-template-columns: 1fr;
+      }
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .gallery img {
+      width: 210px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 3px solid #eee;
+      transition: transform 0.3s ease, border-color 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      border-color: #e74949;
+    }
+    .review-btn {
+      display: inline-block;
+      background: #2066b0;
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 24px 0;
+    }
+    .review-btn:hover {
+      background: #14416d;
+    }
+    .map-responsive {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      height: 0;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+    .map-responsive iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      border: 0;
+    }
+    .contact-info {
+      font-size: 1.1rem;
+    }
+    .footer {
+      text-align: center;
+      color: #333;
+      padding: 18px 0;
+      background: #ffffffcc;
+      border-radius: 0 0 14px 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Cheesy Scoop</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#location">Location</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about" class="about-section">
+      <h2>About Us</h2>
+      <p>
+        Welcome to <strong>The Cheesy Scoop</strong> — your sweet destination for all things fresh and delicious! From classic cakes and pastries to delightful desserts and bakery treats, we serve happiness in every bite. Visit us to experience the taste of tradition and love, baked daily.
+      </p>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <h2>Our Creative Menu</h2>
+      <div class="menu-creative">
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🍰</span>Cakes</h3>
+          <ul class="menu-list">
+            <li>Pineapple Paradise Cake</li>
+            <li>Blueberry Delight Cake</li>
+            <li>Caramel Butterscotch delight Cake</li>
+            <li>White Forest Cake</li>
+            <li>Black Forest Cake</li>
+            <li>Rich Rasmalai Cake</li>
+            <li>Choco chips extra chocolate Cake</li>
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🥧</span>Cheesecake</h3>
+          <ul class="menu-list">
+            <li>Lotus Biscoff</li>
+            <li>Blueberry</li>
+            <li>Nutella</li>
+            <li>Ferrero Rocher</li>
+            <li>Truffle Chocolate</li>
+            <li>Caramel chocolate</li>
+            <li>Raspberry</li>
+            <li>Strawberry</li>
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <!-- <h3><span class="menu-emoji">🧁</span>Pastry <span class="special-tag">Today's Special!</span></h3> -->
+          <h3><span class="menu-emoji">🧁</span>Pastry</h3>
+
+          <ul class="menu-list">
+            <li>Choco Chips</li>
+            <li>Rasmalai</li>
+            <li>Black Forest</li>
+            <li>Chocolate Truffle</li>
+            <li>Red Velvet</li>
+          </ul>
+        </div>
+
+                <div class="menu-card">
+          <h3><span class="menu-emoji">🍰</span>Our Special Cakes</h3>
+          <ul class="menu-list">
+            <li>Strawberry Swing Cake</li>
+            <li>Mango Fiesta Cake</li>
+            <li>Royal choco vanilla Cake</li>
+            <li>Rich chocolate truffle Cake</li>
+            <li>Dutch truffle Primeus Cake</li>
+            <li>Kitkat Choco Cake</li>
+            <li>Red Velvet Royal Crumb cake</li>
+            <li>Lotus Biscoff Cake</li>
+            <li>Honey Rose Gulkand Cake</li>
+
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🍮</span>Dessert</h3>
+          <ul class="menu-list">
+            <li>Waffles</li>
+            <li>Lava cake</li>
+            <li>Chocolate mousse</li>
+            <li>Chocolate balls</li>
+            <li>Fruit custard</li>
+            <li>Rawa cake</li>
+            <li>Chocolate fudge</li>
+          </ul>
+        </div>
+
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🍩</span>Doughnut</h3>
+          <ul class="menu-list">
+            <li>Kitkat</li>
+            <li>Gems</li>
+            <li>Chocolate</li>
+            <li>Rainbow</li>
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🧁</span>Cupcake</h3>
+          <ul class="menu-list">
+            <li>Strawberry Chocolate</li>
+            <li>Caramel Butterscotch</li>
+            <li>Choco chips</li>
+            <li>Blueberry</li>
+            <li>Chocolate Truffle</li>
+            <li>Lotus Biscoff</li>
+            <li>Ferrero Rocher</li>
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🍫</span>Brownie</h3>
+          <ul class="menu-list">
+            <li>Sizzling Brownie</li>
+            <li>Hazelnut Brownie</li>
+            <li>Walnut Brownie</li>
+            <li>Choco chips Brownie</li>
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🥤</span>Drinks</h3>
+          <ul class="menu-list">
+            <li>Fruit punch</li>
+            <li>Licchi punch</li>
+            <li>Mango tango</li>
+            <li>Moka</li>
+            <li>Kooka</li>
+          </ul>
+        </div>
+
+        <div class="menu-card">
+          <h3><span class="menu-emoji">🥐</span>Bakery Items</h3>
+          <ul class="menu-list">
+            <li>Panneer Puff</li>
+            <li>Veg Puff</li>
+            <li>Cookies</li>
+            <li>Cream roll</li>
+            <li>Croissant</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Classic cheesecake with berries">
+        <img src="https://images.unsplash.com/photo-1589308078055-eb2826fa8e3c?auto=format&fit=crop&w=600&q=80" alt="Chocolate brownie with ice cream">
+        <img src="https://images.unsplash.com/photo-1612197529931-17d3b5b4ae4f?auto=format&fit=crop&w=600&q=80" alt="Assorted cupcakes">
+        <img src="https://images.unsplash.com/photo-1606755962778-29ef98d27fb8?auto=format&fit=crop&w=600&q=80" alt="Donuts with toppings">
+        <img src="https://images.unsplash.com/photo-1599785209791-001aa6ecdd0d?auto=format&fit=crop&w=600&q=80" alt="Fresh waffles with strawberries">
+        <img src="https://images.unsplash.com/photo-1599785194781-f8c6c42c1b68?auto=format&fit=crop&w=600&q=80" alt="Sizzling chocolate dessert">
+      </div>
+    </section>
+
+    <section id="reviews" style="text-align:center;">
+      <h2>Love our treats? Leave a Google Review!</h2>
+      <a class="review-btn" href="https://g.co/kgs/UxpsU2d" target="_blank">Review Us on Google</a>
+    </section>
+
+    <section id="location">
+      <h2>Visit Us</h2>
+      <div class="contact-info">
+        <p><strong>Address:</strong> Shop 22, Cheesy Lane, Flavor Town, Mumbai - 400001</p>
+        <p><strong>Contact:</strong> <a href="tel:+919876543210">+91-9876543210</a></p>
+      </div>
+      <div class="map-responsive">
+        <iframe src="https://www.google.com/maps?q=19.0760,72.8777&hl=en&z=14&amp;output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p style="text-align:center;">
+        <a class="review-btn" href="https://g.co/kgs/UxpsU2d" target="_blank">Open in Google Maps</a>
+      </p>
+    </section>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 The Cheesy Scoop. All rights reserved.
+  </div>
+</body>
+</html>
